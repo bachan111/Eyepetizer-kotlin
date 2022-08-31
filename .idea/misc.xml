@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/androidstudio/download/Eyepetizer-kotlin/app/src/main/res/drawable/ic_avatar_gray_76dp.xml" value="0.126" />
+        <entry key="..\:/androidstudio/download/Eyepetizer-kotlin/app/src/main/res/layout/activity_splash.xml" value="0.16041666666666668" />
+        <entry key="..\:/androidstudio/download/Eyepetizer-kotlin/app/src/main/res/layout/dialog_appraise_tips.xml" value="0.3536458333333333" />
+        <entry key="..\:/androidstudio/download/Eyepetizer-kotlin/app/src/main/res/layout/fragment_share_dialog.xml" value="0.1609375" />
+        <entry key="..\:/androidstudio/download/Eyepetizer-kotlin/app/src/main/res/layout/layout_srl_classics_footer.xml" value="0.3536458333333333" />
+      </map>
+    </option>
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
