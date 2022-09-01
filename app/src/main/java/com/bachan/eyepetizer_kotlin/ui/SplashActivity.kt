@@ -10,6 +10,8 @@ import com.bachan.eyepetizer_kotlin.MainActivity
 import com.bachan.eyepetizer_kotlin.R
 import com.bachan.eyepetizer_kotlin.base.BaseActivity
 import com.bachan.eyepetizer_kotlin.extension.sharedPreferences
+import com.bachan.eyepetizer_kotlin.util.GlobalUtil
+import com.permissionx.guolindev.PermissionX
 import kotlinx.android.synthetic.main.activity_splash.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
@@ -52,33 +54,33 @@ class SplashActivity : BaseActivity() {
     }
 
     private fun requestWriteExternalStoragePermission() {
-//        PermissionX.init(this@SplashActivity).permissions(Manifest.permission.WRITE_EXTERNAL_STORAGE)
-//            .onExplainRequestReason { scope, deniedList ->
-//                val message = GlobalUtil.getString(R.string.request_permission_picture_processing)
-//                scope.showRequestReasonDialog(deniedList, message, GlobalUtil.getString(R.string.ok), GlobalUtil.getString(R.string.cancel))
-//            }
-//            .onForwardToSettings { scope, deniedList ->
-//                val message = GlobalUtil.getString(R.string.request_permission_picture_processing)
-//                scope.showForwardToSettingsDialog(deniedList, message, GlobalUtil.getString(R.string.settings), GlobalUtil.getString(R.string.cancel))
-//            }
-//            .request { allGranted, grantedList, deniedList ->
+        PermissionX.init(this@SplashActivity).permissions(Manifest.permission.WRITE_EXTERNAL_STORAGE)
+            .onExplainRequestReason { scope, deniedList ->
+                val message = GlobalUtil.getString(R.string.request_permission_picture_processing)
+                scope.showRequestReasonDialog(deniedList, message, GlobalUtil.getString(R.string.ok), GlobalUtil.getString(R.string.cancel))
+            }
+            .onForwardToSettings { scope, deniedList ->
+                val message = GlobalUtil.getString(R.string.request_permission_picture_processing)
+                scope.showForwardToSettingsDialog(deniedList, message, GlobalUtil.getString(R.string.settings), GlobalUtil.getString(R.string.cancel))
+            }
+            .request { allGranted, grantedList, deniedList ->
                 requestReadPhoneStatePermission()
-//            }
+            }
     }
 
     private fun requestReadPhoneStatePermission() {
-//        PermissionX.init(this@SplashActivity).permissions(Manifest.permission.READ_PHONE_STATE)
-//            .onExplainRequestReason { scope, deniedList ->
-//                val message = GlobalUtil.getString(R.string.request_permission_access_phone_info)
-//                scope.showRequestReasonDialog(deniedList, message, GlobalUtil.getString(R.string.ok), GlobalUtil.getString(R.string.cancel))
-//            }
-//            .onForwardToSettings { scope, deniedList ->
-//                val message = GlobalUtil.getString(R.string.request_permission_access_phone_info)
-//                scope.showForwardToSettingsDialog(deniedList, message, GlobalUtil.getString(R.string.settings), GlobalUtil.getString(R.string.cancel))
-//            }
-//            .request { allGranted, grantedList, deniedList ->
+        PermissionX.init(this@SplashActivity).permissions(Manifest.permission.READ_PHONE_STATE)
+            .onExplainRequestReason { scope, deniedList ->
+                val message = GlobalUtil.getString(R.string.request_permission_access_phone_info)
+                scope.showRequestReasonDialog(deniedList, message, GlobalUtil.getString(R.string.ok), GlobalUtil.getString(R.string.cancel))
+            }
+            .onForwardToSettings { scope, deniedList ->
+                val message = GlobalUtil.getString(R.string.request_permission_access_phone_info)
+                scope.showForwardToSettingsDialog(deniedList, message, GlobalUtil.getString(R.string.settings), GlobalUtil.getString(R.string.cancel))
+            }
+            .request { allGranted, grantedList, deniedList ->
                 setContentView(R.layout.activity_splash)
-//            }
+            }
     }
 
     override fun onDestroy() {

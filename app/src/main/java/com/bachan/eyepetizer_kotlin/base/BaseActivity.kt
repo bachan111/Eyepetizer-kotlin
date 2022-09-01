@@ -4,8 +4,11 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.annotation.ColorRes
 import androidx.appcompat.app.AppCompatActivity
+import com.bachan.eyepetizer_kotlin.R
 import com.bachan.eyepetizer_kotlin.event.MessageEvent
 import com.bachan.eyepetizer_kotlin.extension.logD
 import com.bachan.eyepetizer_kotlin.util.ActivityCollector
@@ -95,21 +98,21 @@ open class BaseActivity:AppCompatActivity() {
 
     override fun setContentView(layoutResID: Int) {
         super.setContentView(layoutResID)
-//        setStatusBarBackground(R.color.colorPrimaryDark)
+        setStatusBarBackground(R.color.colorPrimaryDark)
         setupViews()
     }
 
     override fun setContentView(layoutView: View) {
         super.setContentView(layoutView)
-//        setStatusBarBackground(R.color.colorPrimaryDark)
+        setStatusBarBackground(R.color.colorPrimaryDark)
         setupViews()
     }
 
     protected open fun setupViews() {
-//        val navigateBefore = findViewById<ImageView>(R.id.ivNavigateBefore)
-//        val tvTitle = findViewById<TextView>(R.id.tvTitle)
-//        navigateBefore?.setOnClickListener { finish() }
-//        tvTitle?.isSelected = true  //获取焦点，实现跑马灯效果。
+        val navigateBefore = findViewById<ImageView>(R.id.ivNavigateBefore)
+        val tvTitle = findViewById<TextView>(R.id.tvTitle)
+        navigateBefore?.setOnClickListener { finish() }
+        tvTitle?.isSelected = true  //获取焦点，实现跑马灯效果。
 
     }
 

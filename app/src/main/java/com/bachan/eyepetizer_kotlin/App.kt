@@ -9,6 +9,8 @@ import com.bachan.eyepetizer_kotlin.util.DialogAppraiseTipsWorker
 import com.bachan.eyepetizer_kotlin.view.NoStatusFooter
 import com.scwang.smart.refresh.header.MaterialHeader
 import com.scwang.smart.refresh.layout.SmartRefreshLayout
+import com.shuyu.gsyvideoplayer.player.IjkPlayerManager
+import tv.danmaku.ijk.media.player.IjkMediaPlayer
 
 class App :Application(){
     companion object {
@@ -49,7 +51,7 @@ class App :Application(){
         context = this
 //        UMConfigure.init(this, null, null, UMConfigure.DEVICE_TYPE_PHONE, null)
 //        UMConfigure.setLogEnabled(BuildConfig.DEBUG)
-//        IjkPlayerManager.setLogLevel(if (BuildConfig.DEBUG) IjkMediaPlayer.IJK_LOG_WARN else IjkMediaPlayer.IJK_LOG_SILENT)
+        IjkPlayerManager.setLogLevel(if (BuildConfig.DEBUG) IjkMediaPlayer.IJK_LOG_WARN else IjkMediaPlayer.IJK_LOG_SILENT)
 //        WebViewActivity.DEFAULT_URL.preCreateSession()
         if (!SplashActivity.isFirstEntryApp && DialogAppraiseTipsWorker.isNeedShowDialog) {
             WorkManager.getInstance(this).enqueue(DialogAppraiseTipsWorker.showDialogWorkRequest)
