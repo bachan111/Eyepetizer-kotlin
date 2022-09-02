@@ -4,20 +4,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".ui.home.HomeFragment">
 
-    <FrameLayout
-        android:id="@+id/homeActivityFragContainer"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:background="@color/white" />
+    <include layout="@layout/layout_main_page_title_bar" />
 
     <View
+        android:id="@+id/viewHorizontalLine"
         android:layout_width="match_parent"
         android:layout_height="1px"
-        android:background="@color/grayDark" />
+        android:background="@color/gray" />
 
-    <include layout="@layout/layout_bottom_navigation_bar" />
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
 
 </LinearLayout>
