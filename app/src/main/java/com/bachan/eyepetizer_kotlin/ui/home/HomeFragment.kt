@@ -9,15 +9,23 @@ import com.bachan.eyepetizer_kotlin.R
 import com.bachan.eyepetizer_kotlin.base.BaseViewPagerFragment
 import com.bachan.eyepetizer_kotlin.entity.TabEntity
 import com.bachan.eyepetizer_kotlin.event.MessageEvent
+import com.bachan.eyepetizer_kotlin.event.RefreshEvent
+import com.bachan.eyepetizer_kotlin.ui.home.commend.CommendFragment
+import com.bachan.eyepetizer_kotlin.ui.home.daily.DailyFragment
+import com.bachan.eyepetizer_kotlin.ui.home.discovery.DiscoveryFragment
 import com.bachan.eyepetizer_kotlin.util.GlobalUtil
 import com.flyco.tablayout.listener.CustomTabEntity
 import kotlinx.android.synthetic.main.layout_main_page_title_bar.*
+import org.greenrobot.eventbus.EventBus
 
 class HomeFragment:BaseViewPagerFragment() {
     override val createTitles = ArrayList<CustomTabEntity>().apply {
         add(TabEntity(GlobalUtil.getString(R.string.discovery)))
+        add(TabEntity(GlobalUtil.getString(R.string.commend)))
+        add(TabEntity(GlobalUtil.getString(R.string.daily)))
     }
-    override val createFragments: Array<Fragment> = arrayOf(DiscoveryFragment.newInstance())
+    override val createFragments: Array<Fragment> = arrayOf(DiscoveryFragment.newInstance(),
+        CommendFragment.newInstance(),DailyFragment.newInstance())
 
 
     override fun onCreateView(
@@ -37,6 +45,24 @@ class HomeFragment:BaseViewPagerFragment() {
 
     override fun onMessageEvent(messageEvent: MessageEvent) {
         super.onMessageEvent(messageEvent)
+        if (messageEvent is RefreshEvent && this::class.java == messageEvent.activityClass) {
+            when (viewPager?.currentItem) {
+                0 -> EventBus.getDefault().post(RefreshEvent(DiscoveryFragment::class.java))
+                1 -> EventBus.getDefault().post(RefreshEvent(CommendFragment::class.java))
+                2 -> EventBus.getDefault().post(RefreshEvent(DailyFragment::class.java))
+                else -> {
+                }
+            }
+        }
+//        else if (messageEvent is SwitchPagesEvent) {
+//            when (messageEvent.activityClass) {
+//                DiscoveryFragment::class.java -> viewPager?.currentItem = 0
+//                CommendFragment::class.java -> viewPager?.currentItem = 1
+//                DailyFragment::class.java -> viewPager?.currentItem = 2
+//                else -> {
+//                }
+//            }
+//        }
     }
 
     companion object {

@@ -1,14 +1,14 @@
-package com.bachan.eyepetizer_kotlin
+package com.bachan.eyepetizer_kotlin.ui.main
 
 import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.Observer
 import androidx.work.WorkInfo
 import androidx.work.WorkManager
+import com.bachan.eyepetizer_kotlin.R
 import com.bachan.eyepetizer_kotlin.base.BaseActivity
 import com.bachan.eyepetizer_kotlin.event.RefreshEvent
 import com.bachan.eyepetizer_kotlin.extension.logD

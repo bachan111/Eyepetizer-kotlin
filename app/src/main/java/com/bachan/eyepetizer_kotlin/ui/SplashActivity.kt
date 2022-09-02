@@ -6,7 +6,7 @@ import android.view.animation.AlphaAnimation
 import android.view.animation.Animation
 import android.view.animation.ScaleAnimation
 import androidx.core.content.edit
-import com.bachan.eyepetizer_kotlin.MainActivity
+import com.bachan.eyepetizer_kotlin.ui.main.MainActivity
 import com.bachan.eyepetizer_kotlin.R
 import com.bachan.eyepetizer_kotlin.base.BaseActivity
 import com.bachan.eyepetizer_kotlin.extension.sharedPreferences
